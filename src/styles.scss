@@ -1,0 +1,13 @@
+
+
+
+
+/*angular material prebuilt themes*/
+/*@import "~@angular/material/prebuilt-themes/indigo-pink.css";*/
+
+/*custom theme with angular material colors*/
+@import "themes/themeWithAngularMaterialColors.scss";
+
+@include mat-core();
+
+@include angular-material-theme($my-app-theme);

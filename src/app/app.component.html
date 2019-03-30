@@ -1,20 +1,117 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-sidenav-container class="example-container">
+	<mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+	(closed)="events.push('close!')">
+	Sidenav content
+</mat-sidenav>
 
+<mat-sidenav-content>
+	<mat-toolbar color="primary">
+		<p>
+			<button *ngIf="!opened" mat-icon-button (click)="sidenav.toggle()">
+				<mat-icon>
+					menu
+				</mat-icon>
+			</button>
+			<button *ngIf="opened" mat-icon-button (click)="sidenav.toggle()">
+				<mat-icon>
+					close
+				</mat-icon>
+			</button>
+		</p>
+		{{title}}
+		<div class="example-button-row">
+			<button mat-raised-button color="primary" (click)="onSetTheme('default-theme')">Default</button>
+			<button mat-raised-button color="primary" (click)="onSetTheme('dark-theme')">Dark</button>
+			<button mat-raised-button color="primary" (click)="onSetTheme('light-theme')">Light</button>
+		</div>
+	</mat-toolbar>
+	<mat-tab-group>
+		<mat-tab label="Colors">
+			<mat-card class="example-card">
+				<mat-card-header>
+					<mat-card-title>These are the theme colors</mat-card-title>
+					<mat-card-subtitle>See if you like how they look</mat-card-subtitle>
+				</mat-card-header>
+				<mat-card-content>
+					<div class="example-button-row">
+						<button mat-flat-button>Basic</button>
+						<button mat-flat-button color="primary">Primary</button>
+						<button mat-flat-button color="accent">Accent</button>
+						<button mat-flat-button color="warn">Warn</button>
+						<button mat-flat-button disabled>Disabled</button>
+						<a mat-flat-button routerLink=".">Link</a>
+					</div>
+				</mat-card-content>
+			</mat-card>
+		</mat-tab>
+		<mat-tab label="Blog"> 
+			<mat-card class="example-card">
+				<mat-card-header>
+					<mat-card-title>These are the theme colors</mat-card-title>
+					<mat-card-subtitle>See if you like how they look</mat-card-subtitle>
+				</mat-card-header>
+				<mat-card-content>
+					<h2> LOREP IPSUM OMG SO COOL</h2>
+					<mat-divider></mat-divider>
+					<p>
+						Lorem ipsum dolor amet lumbersexual eiusmod ennui aliquip truffaut keytar. Hot chicken consectetur godard ex salvia hashtag truffaut photo booth wayfarers lumbersexual. Trust fund pariatur dreamcatcher dolore kitsch, seitan vape pickled 3 wolf moon PBR&B aute 8-bit shaman vexillologist. Vexillologist pickled cornhole live-edge duis chambray tote bag. Laborum pitchfork photo booth, stumptown flexitarian franzen succulents. Thundercats plaid la croix fashion axe.
+					</p>
+					<p>
+						Everyday carry magna yr lorem palo santo fugiat. Retro lyft in schlitz ennui nisi tempor direct trade kinfolk cupidatat jean shorts poke distillery austin truffaut. Dolore velit vice irure woke mumblecore. Tilde 8-bit ut shaman cardigan unicorn. Health goth messenger bag hella tofu adipisicing.
+					</p>
+					<p>
+						Enim you probably haven't heard of them austin fanny pack pitchfork mixtape fingerstache actually incididunt vice. Literally ut plaid, marfa forage in consequat church-key normcore vexillologist. Sed cronut exercitation edison bulb franzen church-key. Kale chips sint nisi, vape velit leggings green juice craft beer before they sold out voluptate cardigan kitsch lomo. Street art banjo affogato elit four dollar toast. Pabst minim poutine, +1 magna lo-fi banh mi tacos health goth selvage aesthetic.
+					</p>
+					<p>
+						Blog pug biodiesel vaporware. Ut kinfolk id forage, PBR&B dolore brooklyn mollit mustache do adaptogen. Magna sartorial cornhole officia deserunt beard. Velit drinking vinegar synth, nisi quinoa butcher food truck gastropub edison bulb in woke in godard duis everyday carry.
+					</p>
+				</mat-card-content>
+			</mat-card>
+		</mat-tab>
+		<mat-tab label="Form">
+			<mat-card class="example-card">
+				<mat-card-header>
+					<mat-card-title>These are the theme colors</mat-card-title>
+					<mat-card-subtitle>See if you like how they look</mat-card-subtitle>
+				</mat-card-header>
+				<mat-card-content>
+					<p>
+						<mat-form-field appearance="legacy">
+							<mat-label>Legacy form field</mat-label>
+							<input matInput placeholder="Placeholder">
+							<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+							<mat-hint>Hint</mat-hint>
+						</mat-form-field>
+					</p>
+					<p>
+						<mat-form-field appearance="standard">
+							<mat-label>Standard form field</mat-label>
+							<input matInput placeholder="Placeholder">
+							<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+							<mat-hint>Hint</mat-hint>
+						</mat-form-field>
+					</p>
+					<p>
+						<mat-form-field appearance="fill">
+							<mat-label>Fill form field</mat-label>
+							<input matInput placeholder="Placeholder">
+							<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+							<mat-hint>Hint</mat-hint>
+						</mat-form-field>
+					</p>
+					<p>
+						<mat-form-field appearance="outline">
+							<mat-label>Outline form field</mat-label>
+							<input matInput placeholder="Placeholder">
+							<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+							<mat-hint>Hint</mat-hint>
+						</mat-form-field>
+					</p>
+				</mat-card-content>
+			</mat-card>
+			
+		</mat-tab>
+	</mat-tab-group>
+</mat-sidenav-content>
+</mat-sidenav-container>
