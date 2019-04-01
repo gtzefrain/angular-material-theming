@@ -2,7 +2,12 @@
 <mat-sidenav-container class="example-container">
 	<mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
 	(closed)="events.push('close!')">
-	Sidenav content
+	<a class="sidenavLink" routerLink=".">Link</a>
+	<mat-divider></mat-divider>
+	<a class="sidenavLink" routerLink=".">Link</a>
+	<mat-divider></mat-divider>
+	<a class="sidenavLink" routerLink=".">Link</a>
+	<mat-divider></mat-divider>
 </mat-sidenav>
 
 <mat-sidenav-content>
@@ -20,11 +25,17 @@
 			</button>
 		</p>
 		{{title}}
-		<div class="example-button-row">
-			<button mat-raised-button color="primary" (click)="onSetTheme('default-theme')">Default</button>
-			<button mat-raised-button color="primary" (click)="onSetTheme('dark-theme')">Dark</button>
-			<button mat-raised-button color="primary" (click)="onSetTheme('light-theme')">Light</button>
-		</div>
+		<span class="example-spacer"></span>
+		<button mat-icon-button [matMenuTriggerFor]="menu">
+			<mat-icon>
+				color_lens
+			</mat-icon>
+		</button>
+		<mat-menu #menu="matMenu">
+			<button mat-menu-item color="primary" (click)="onSetTheme('default-theme')">Default</button>
+			<button mat-menu-item color="primary" (click)="onSetTheme('dark-theme')">Dark</button>
+			<button mat-menu-item color="primary" (click)="onSetTheme('light-theme')">Light</button>
+		</mat-menu>
 	</mat-toolbar>
 	<mat-tab-group>
 		<mat-tab label="Colors">
@@ -48,13 +59,13 @@
 		<mat-tab label="Blog"> 
 			<mat-card class="example-card">
 				<mat-card-header>
-					<mat-card-title>These are the theme colors</mat-card-title>
-					<mat-card-subtitle>See if you like how they look</mat-card-subtitle>
+					<mat-card-title>This looks like a Blog</mat-card-title>
+					<mat-card-subtitle>Check how the text color is reflected</mat-card-subtitle>
 				</mat-card-header>
 				<mat-card-content>
-					<h2> LOREP IPSUM OMG SO COOL</h2>
+					<p id="title"> Angular Material Blog</p>
 					<mat-divider></mat-divider>
-					<p>
+					<p id="firstParagraph">
 						Lorem ipsum dolor amet lumbersexual eiusmod ennui aliquip truffaut keytar. Hot chicken consectetur godard ex salvia hashtag truffaut photo booth wayfarers lumbersexual. Trust fund pariatur dreamcatcher dolore kitsch, seitan vape pickled 3 wolf moon PBR&B aute 8-bit shaman vexillologist. Vexillologist pickled cornhole live-edge duis chambray tote bag. Laborum pitchfork photo booth, stumptown flexitarian franzen succulents. Thundercats plaid la croix fashion axe.
 					</p>
 					<p>
