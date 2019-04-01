@@ -3,7 +3,13 @@
 
 /*custom theme with angular material colors*/
 @import "themes/themeWithAngularMaterialColors.scss";
+@import "themes/themeWithCustomColors.scss";
+@import "themes/mixins/mat-button.scss";
 
 @include mat-core();
 
 @include angular-material-theme($my-app-theme);
+// custom colors
+// @include angular-material-theme($theme);
+
+// @include mat-button-mixin($button-hover);

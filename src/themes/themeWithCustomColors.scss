@@ -1,0 +1,17 @@
+@import '~@angular/material/theming';
+@import 'palettes/human-blue.scss';
+@import 'palettes/dark-blue.scss';
+@import 'palettes/error-red.scss';
+
+// use of custom palettes for theme
+$my-theme-primary: mat-palette($human-blue);
+$my-theme-accent : mat-palette($dark-blue);
+$my-theme-warn   : mat-palette($error-red);
+// theme definition
+$theme: mat-light-theme(
+    $my-theme-primary,
+    $my-theme-accent,
+    $my-theme-warn
+);
+
+$button-hover: #4976e6;

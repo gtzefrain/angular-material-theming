@@ -1,0 +1,23 @@
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+@mixin mat-button-mixin($color) {
+  // Extract the palettes you need from the theme definition.
+  .mat-raised-button, .mat-flat-button, .mat-stroked-button{
+    min-height: 40px;
+    // overwritten by default, not using important because it overwrites sm and lg 
+    min-width: 74px;
+  }
+
+  .mat-stroked-button:hover, .mat-raised-button:hover, .mat-flat-button:hover {
+    box-shadow: 0 0 2px 3px $color !important;
+  }
+  
+  .mat-raised-button[disabled]:hover, .mat-stroked-button[disabled]:hover, .mat-flat-button[disabled]:hover {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2) !important;
+    cursor: not-allowed;
+  }
+  .mat-button-focus-overlay {
+    background-color: transparent !important;
+  }
+
+}
